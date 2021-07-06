@@ -2,7 +2,7 @@ class Employee:
     emp_count = 0
     work_rate = 2
 
-    def init (self, name, salary):
+    def __init__(self, name, salary):
         self.name = name
         self.salary = salary
 
@@ -27,5 +27,11 @@ p1.change_name('Jorge')
 p1.change_salary(15000)
 p1.display_employee()
 
-print(Emp2.name, Emp2.salary)
-print(Emp1.name, Emp1.salary)
+p2 = Employee('Pako', 1200)
+p2.display_employee()
+p2.change_name('Jorge')
+p2.change_salary(15000)
+p2.display_employee()
+
+print(p2.name, p2.salary)
+print(p1.name, p1.salary)
