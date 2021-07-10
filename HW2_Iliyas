@@ -1,0 +1,73 @@
+current_year = 2021
+
+class Person:
+    """Describing a person"""
+    __total_persons = 0
+    __birth_year = 0
+    __name = 'Johny'
+    __language = 'English'
+
+    def __init__(self, __name, __birth_year, **kwargs):
+        self.__birth_year = __birth_year
+        self.__name = __name
+        self.__language = kwargs.get("language")
+        Person.__total_persons += 1
+
+    if __birth_year >= current_year:
+        raise  Exception('Oops! try again')
+
+    def is_adult(self):
+        return self.__birth_year
+
+    def get_name(self):
+        return self.__name
+
+    def get_age(self):
+       return current_year - self.__birth_year
+
+
+    def get_language(self, **kwargs):
+        return self.__language
+
+    @classmethod
+    def get_total_persons(cls):
+        return cls.__total_persons
+
+    def talk(self):
+        print("Hey, how are you doing?")
+
+
+
+class Teacher(Person):
+    """Describing teacher"""
+    def talk(self):
+        print(f'Hello, i am  {self._Person__name} and i am your teacher')
+
+    def teach(self):
+        print(f'Lesson started by Teacher  {self._Person__name}')
+
+    @classmethod
+    def get_total_persons(cls):
+        return cls.__total_persons
+
+p1 = Person('Pedro', 1999, language='russian')
+p2 = Person('Suzan', 1950, language='english')
+p3 = Person('Lian', 2021, language=' korean')
+t1 = Teacher('Etan', 2900, language='spanish')
+t2 = Teacher('Pako', 1900, language='kyrgyz')
+t3 = Teacher('Abai', 1230, language='italian')
+
+print('Данные людей:')
+print('         язык  год\р. воз. имя')
+print('№ 1 - ', t1.get_language(), t1.is_adult(), t1.get_age(), t1.get_name())
+print('№ 2 - ', t2.get_language(), t2.is_adult(), t2.get_age(), t2.get_name())
+print('№ 3 - ', t3.get_language(), t3.is_adult(), t3.get_age(), t3.get_name())
+print('№ 4 - ', p1.get_language(), p1.is_adult(), p1.get_age(), p1.get_name())
+print('№ 5 - ', p2.get_language(), p2.is_adult(), p2.get_age(), p2.get_name())
+print('№ 6 - ', p3.get_language(), p3.is_adult(), p3.get_age(), p3.get_name())
+print('Итого количество людей добавлено:', Person.get_total_persons())
+
+# p1.talk()
+# t2.teach()
+# t1.talk()
+# t1.teach()
